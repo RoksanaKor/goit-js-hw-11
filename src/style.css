@@ -1,0 +1,136 @@
+:root {
+ --color-dark: #bd9898;
+ --color-gray: #a09494;
+ --color-transparent-gray: rgba(29, 58, 56, 0.533);
+ --color-light: #d4d9ff;
+ --color-accent: #193739;
+ --color-accent-dark: #10221f;
+}
+
+body {
+ background-color: var(--color-accent-dark);
+ color: var(--color-light);
+ font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+ background-attachment: fixed;
+ background-color: var(--color-dark);
+ margin: 0 auto;
+ max-width: 300px;
+ min-height: 90vh;
+}
+
+img {
+ max-width: 100%;
+ border-radius: 7%;
+ box-shadow: 0 1px 1px rgba(19, 33, 36, 0.11), 0 2px 2px rgba(19, 33, 36, 0.11), 0 4px 4px rgba(19, 33, 36, 0.11), 0 6px 8px rgba(19, 33, 36, 0.11), 0 8px 16px rgba(19, 33, 36, 0.11);
+}
+
+input,
+button {
+ background-color: var(--color-gray);
+ border: none;
+ border-radius: 1px;
+ color: var(--color-light);
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ padding: 0.3em 0.4em;
+
+}
+
+button {
+ cursor: pointer;
+ display: block;
+ font-weight: 300;
+ text-transform: uppercase;
+}
+
+.hidden {
+ display: none;
+}
+
+/* header */
+
+.header-container {
+ padding: 0 1em;
+}
+
+.main-heading {
+ font-size: 30px;
+ letter-spacing: 0.03em;
+ margin: 0;
+ padding: 1em;
+ text-align: center;
+ text-transform: uppercase;
+}
+
+/* main */
+
+.main-container {
+ padding: 0 1em;
+}
+
+.search-form {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ gap: 1em;
+ justify-content: center;
+ margin: auto;
+ max-width: 60%;
+ padding-bottom: 2rem;
+}
+
+
+.gallery {
+ display: flex;
+ flex-wrap: wrap;
+
+ gap: 1em;
+ justify-content: center;
+ padding-bottom: 1em;
+}
+
+.photo-card {
+ background-color: var(--color-transparent-gray);
+ border-radius: 5px;
+ padding: 1rem;
+ max-width: 25%;
+}
+
+.thumbnail {
+ max-width: 250px;
+}
+
+.info-item {
+ letter-spacing: 0.02em;
+ display: flex;
+ text-transform: uppercase;
+ align-items: center;
+}
+
+.search-input:focus,
+.submit-btn:focus {
+ box-shadow: 0 0 8px var(--color-accent);
+ outline: none;
+}
+
+.photo-card .link:focus {
+ outline: none;
+}
+
+.link:focus .thumbnail {
+ box-shadow: 0 0 10px var(--color-accent);
+}
+
+@media (min-width: 660px) {
+ .container {
+  max-width: 660px;
+ }
+}
+
+@media (min-width: 1230px) {
+ .container {
+  max-width: 1230px;
+ }
+}
