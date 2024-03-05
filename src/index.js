@@ -75,12 +75,6 @@ form.addEventListener('submit', event => {
     } else {
       onClick();
     }
-    setTimeout(() => {
-      window.scrollBy({
-        top: 160,
-        behavior: 'smooth',
-      });
-    }, 100);
   } catch (error) {
     console.log(error.message);
     Notiflix.Notify.failure('Sorry, technical issues!');
