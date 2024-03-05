@@ -9,11 +9,18 @@ const loadMoreBtn = document.querySelector('.load-more');
 loadMoreBtn.disabled = true;
 
 loadMoreBtn.addEventListener('click', async () => {
-  console.log(input.value);
-  console.log(queryTags);
-  console.log(currentPage);
   try {
-    if (input.value.trim('') === queryTags) {
+    if (input.value.trim('') === '') {
+      gallery.innerHTML = '';
+      loadMoreBtn.disabled = true;
+
+      return;
+    } else if (input.value.trim('') !== queryTags) {
+      gallery.innerHTML = '';
+      onClick();
+
+      return;
+    } else if (input.value.trim('') === queryTags) {
       const options = {
         key: '42678686-e89dbeb1c053e72710a9523f7',
         q: queryTags,
@@ -39,6 +46,8 @@ loadMoreBtn.addEventListener('click', async () => {
         Notiflix.Notify.failure(
           "We're sorry, but you've reached the end of search results."
         );
+
+        return;
       }
 
       const url = `https://pixabay.com/api/?key=${options.key}&q=${options.q}&image_type=${options.image_type}&orientation=${options.orientation}&safesearch=${options.safesearch}&per_page=${options.per_page}&page=${options.page}`;
@@ -60,9 +69,18 @@ form.addEventListener('submit', event => {
     if (input.value.trim('') === '') {
       Notiflix.Notify.warning('Please fill the field with at least one word');
       return;
+    } else if (input.value.trim('') !== queryTags) {
+      gallery.innerHTML = '';
+      onClick();
+    } else {
+      onClick();
     }
-
-    const list = onClick();
+    setTimeout(() => {
+      window.scrollBy({
+        top: 160,
+        behavior: 'smooth',
+      });
+    }, 100);
   } catch (error) {
     console.log(error.message);
     Notiflix.Notify.failure('Sorry, technical issues!');
@@ -74,6 +92,8 @@ let totalHits;
 
 async function onClick() {
   try {
+    console.log(input.value.trim(''));
+    console.log(queryTags);
     currentPage = 1;
     const options = {
       key: '42678686-e89dbeb1c053e72710a9523f7',
