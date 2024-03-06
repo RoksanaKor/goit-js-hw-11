@@ -140,6 +140,14 @@ button {
  }
 }
 
+
+@media (max-width:660px) {
+ .photo-card {
+  font-size: x-small;
+ }
+}
+
+
 .load-more {
  max-width: 60%;
  margin-bottom: 20px;
